@@ -1,0 +1,3 @@
+/Users/oleornaes/Development/Research/Jinarashi/fastfort/build/CMakeFiles/astfort.dir
+/Users/oleornaes/Development/Research/Jinarashi/fastfort/build/CMakeFiles/edit_cache.dir
+/Users/oleornaes/Development/Research/Jinarashi/fastfort/build/CMakeFiles/rebuild_cache.dir
