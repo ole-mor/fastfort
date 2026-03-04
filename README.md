@@ -1,7 +1,5 @@
 # FastFort
 
-
-
 **Project description**
 - FastFort's main priority is to work as an abstraction layer for interacting with electronics and system internals.
 - Is set up to be modular, and performant.
@@ -11,3 +9,7 @@
 - FastFort-domain — APIs for edge and data structures used to fastfort sys. 
 - FastFort-sys — Contains interfaces and practical applications. 
 
+Lisence is Apache 2.0
+
+Repo is updated using 
+https://gitmoji.dev
