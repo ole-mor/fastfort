@@ -48,6 +48,7 @@ set(SOURCES
     cmd/main.c
     lib/mo/mo.c
     lib/mm/mm.c
+    lib/bsp/bsp.c
     domain/edge/mcu/peripherals/tmp/tmp.c
     ${NVM_SOURCE}
     ${I2C_SOURCE}
