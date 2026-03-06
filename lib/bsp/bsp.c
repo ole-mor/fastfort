@@ -13,14 +13,16 @@
 //
 // Existing parsing fn => sscanf, #include <string.h> -> 
 // strchr, strstr, strspn, strtok
-// strdup, strndup, strlen ? 
+// strdup, strndup, strlen 
 //
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdarg.h>
 #include "bsp.h"
+
 
 /////////////////////////////////////////////
 
@@ -289,3 +291,39 @@ char* replaceAll(char* str, char* old_str, char* new_str){
     return result;
 }
 
+char* format(char* fmt, ...){
+    va_list args;
+    va_start(args, fmt);
+    int len = vsnprintf(NULL, 0, fmt, args);
+    va_end(args);
+
+    char* buf = malloc(len + 1);
+    va_start(args, fmt);
+    vsnprintf(buf, len + 1, fmt, args);
+    va_end(args);
+
+    return buf;
+}
+
+char* collapseWhitespace(char* str){
+    char* buf = malloc(strlen(str) + 1);
+    char* out = buf;
+    int inSpace = 0;
+
+    while (*str && isspace(*str)) str++;
+
+    while (*str){
+        if (isspace(*str)){
+            inSpace = 1;
+        } else {
+            if (inSpace){
+                *out++ = ' ';
+                inSpace = 0;
+            }
+            *out++ = *str;
+        }
+        str++;
+    }
+    *out = '\0';
+    return buf;
+}

@@ -28,6 +28,8 @@ void freefindresult(findresult_t* result);
 char* toUpper(char* str);
 char* toLower(char* str);
 char* replace(char* str, char* old_str, char* new_str);
-char* replaceRegex(char* str, char* pattern, char* replacement);
+char* replaceAll(char* str, char* old_str, char* new_str);
+char* format(char* fmt, ...);
+char* collapseWhitespace(char* str);
 
 #endif
