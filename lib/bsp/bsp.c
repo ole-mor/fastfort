@@ -1,20 +1,4 @@
 // Basic string parsing
-//
-// Includes:
-// split() + free_split()
-// trim() 
-// startsWith(), endsWith()
-// join()
-// find(), findAll()
-// match()
-// toUpper(), toLower()
-// replace(), replacePattern()
-//
-//
-// Existing parsing fn => sscanf, #include <string.h> -> 
-// strchr, strstr, strspn, strtok
-// strdup, strndup, strlen 
-//
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,7 +6,6 @@
 #include <ctype.h>
 #include <stdarg.h>
 #include "bsp.h"
-
 
 /////////////////////////////////////////////
 
@@ -146,10 +129,10 @@ char* join(char** arr, char* delim){
 
 ////////////////////////////////////////////////
 
-findresult_t* find(char* str, char* pattern){
+find_result_t* find(char* str, char* pattern){
     if (str == NULL || pattern == NULL) return NULL;
     
-    findresult_t* result = malloc(sizeof(findresult_t));
+    find_result_t* result = malloc(sizeof(find_result_t));
     if (result == NULL) return NULL;
 
     result->count = 0;
@@ -182,10 +165,10 @@ findresult_t* find(char* str, char* pattern){
     return result;
 }
 
-findresult_t* findAll(char* str, char* pattern){
+find_result_t* findAll(char* str, char* pattern){
     if (str == NULL || pattern == NULL) return NULL;
 
-    findresult_t* result = malloc(sizeof(findresult_t));
+    find_result_t* result = malloc(sizeof(find_result_t));
     if (result == NULL) return NULL;
 
     result->count = 0;
@@ -221,7 +204,7 @@ findresult_t* findAll(char* str, char* pattern){
     return result;
 }
 
-void freefindresult(findresult_t* result){
+void freefindresult(find_result_t* result){
     if (result == NULL) return; 
     if (result->locations != NULL){
         for (int i = 0; i < result->count; i++){
