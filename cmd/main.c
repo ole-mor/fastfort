@@ -4,18 +4,10 @@
 #include "../lib/mo/mo.h"
 #include "../lib/res/res.h"
 #include "../lib/bsp/bsp.h"
+#include "../lib/bmu/bmu.h"
+#include "../lib/bfi/bfi.h"
 
 int main(void) {
-
-    char** t = split("Hello world", " ");
-    printf("%s", t[0]);
-    split_free(t);
-    
-
-    mo_t test = {.obj = "test"};
-    result_t r1 = process(test, mo_t);
-    if (RES_IS_ERR(r1)) {
-        printf("Error: %d '%s' %s %d\n", r1.code, r1.message, r1.file, r1.line);
-    }
+    macho_w("hello world");
     return 0;
 }

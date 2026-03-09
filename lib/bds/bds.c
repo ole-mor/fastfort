@@ -1,11 +1,11 @@
-// Data structures
+// Basic data structures
 
 #include <stdlib.h>
 #include <string.h>
-#include "ds.h"
+#include "bds.h"
 
 // arrays
-array_t* new_array(){
+array_t* new_array(void){
     array_t* arr = malloc(sizeof(array_t));
     arr->items = malloc(sizeof(void*) * 8);
     arr->size = 0;
@@ -81,7 +81,7 @@ void arr_free(array_t* arr){
 }
 
 // linkedlists
-llist_t* ll_new(){
+llist_t* ll_new(void){
     llist_t* ll = malloc(sizeof(llist_t));
     if (ll == NULL) return NULL;
     ll->head = NULL;
@@ -243,7 +243,7 @@ static int hash(const char* key, int capacity){ // example: key = "hi", capacity
     return h % capacity;                        // return 
 }
 
-map_t* map_new(){
+map_t* map_new(void){
     map_t* map = malloc(sizeof(map_t));
     if (map == NULL) return NULL;
     map->buckets = calloc(MAP_INITIAL_CAPACITY, sizeof(map_entry_t*));
@@ -376,7 +376,7 @@ void map_free(map_t* map){
 
 #define SET_INITIAL_CAPACITY 16
 
-set_t* set_new() {
+set_t* set_new(void) {
     set_t* set = malloc(sizeof(set_t));
     if (set == NULL) return NULL;
     set->buckets = calloc(SET_INITIAL_CAPACITY, sizeof(set_entry_t*));
@@ -484,7 +484,7 @@ void set_free(set_t* set) {
 }
 
 // stack
-stk_t* stk_new(){
+stk_t* stk_new(void){
     stk_t* stk = malloc(sizeof(stk_t));
     if (stk == NULL) return NULL;
     stk->items = malloc(sizeof(void*) * 8);
@@ -528,7 +528,7 @@ void stk_free(stk_t* stk){
 }
 
 // queue
-q_t* q_new() {
+q_t* q_new(void) {
     q_t* q = malloc(sizeof(q_t));
     if (q == NULL) return NULL;
     q->front = NULL;
@@ -584,7 +584,7 @@ void q_free(q_t* q) {
 }
 
 // tensor
-tensor_t tensor_new(int* shape, int ndim){
+tensor_t* tensor_new(int* shape, int ndim){
     tensor_t* t = malloc(sizeof(tensor_t));
     t->ndim = ndim;
     t->shape = malloc(sizeof(int) * ndim);

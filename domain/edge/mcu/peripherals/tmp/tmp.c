@@ -11,6 +11,7 @@ void get_tmp(void* ctx) {
 
     if (device->config.addr != 0) {
     } else {
+        // 
     }
 
     device->data.status = TMP_STATUS_OK;

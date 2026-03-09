@@ -47,6 +47,7 @@ char** split(char* str, char* delim){
     return result;
 }
 
+
 void split_free(char** arr){
     // We have to deallocate pointers 
     // Then we can deallocate array 
@@ -74,7 +75,7 @@ char* trim(char* str){
 
 /////////////////////////////////////////////
 
-int startsWith(char* str, char* prefix){
+int starts_with(char* str, char* prefix){ // 1 = TRUE
     if (str == NULL || prefix == NULL) return -1;
     if (strlen(prefix) > strlen(str)) return -1;
 
@@ -85,7 +86,7 @@ int startsWith(char* str, char* prefix){
     return strncmp(str, prefix, strlen(prefix)) == 0;    
 }
 
-int endsWith(char* str, char* suffix){
+int ends_with(char* str, char* suffix){
     if (str == NULL || suffix == NULL) return -1;
     if (strlen(suffix) > strlen(str)) return -1; // we need to add error handling
     
@@ -165,7 +166,7 @@ find_result_t* find(char* str, char* pattern){
     return result;
 }
 
-find_result_t* findAll(char* str, char* pattern){
+find_result_t* find_all(char* str, char* pattern){
     if (str == NULL || pattern == NULL) return NULL;
 
     find_result_t* result = malloc(sizeof(find_result_t));
@@ -204,7 +205,7 @@ find_result_t* findAll(char* str, char* pattern){
     return result;
 }
 
-void freefindresult(find_result_t* result){
+void free_findresult(find_result_t* result){
     if (result == NULL) return; 
     if (result->locations != NULL){
         for (int i = 0; i < result->count; i++){
@@ -215,10 +216,11 @@ void freefindresult(find_result_t* result){
     free(result);
 }
 
+
 ////////////////////////////////////////////////
 
 
-char* toUpper(char* str){
+char* to_upper(char* str){
     if (str == NULL) return NULL;
     char* result = strdup(str);
     if (result == NULL) return NULL;
@@ -228,7 +230,7 @@ char* toUpper(char* str){
     return result;
 }
 
-char* toLower(char* str){
+char* to_lower(char* str){
     if (str == NULL) return NULL;
     char* result = strdup(str);
     if (result == NULL) return NULL;
@@ -246,7 +248,7 @@ char* replace(char* str, char* old_str, char* new_str){
     char* match = strstr(str, old_str);
     if (match == NULL) return strdup(str);
 
-    int result_len = strlen(str) - strlen(old_str) + strlen(new_len);
+    int result_len = strlen(str) - strlen(old_str) + strlen(new_str);
 
     char* result = malloc((result_len + 1) * sizeof(char));
     if (result == NULL) return NULL;
@@ -260,17 +262,18 @@ char* replace(char* str, char* old_str, char* new_str){
 }
 
 
-char* replaceAll(char* str, char* old_str, char* new_str){
+char* replace_all(char* str, char* old_str, char* new_str){
     if (str == NULL || old_str == NULL || new_str == NULL) return NULL;
     
-    char* result = strdup(str);
+    char* curr = strdup(str);
     char* temp;
 
-    while ((strstr(result, old_str)) != NULL){
-        temp = replace(result, old_str, new_str);
-        free(result);
-        current = temp;
+    while ((strstr(curr, old_str)) != NULL){
+        temp = replace(curr, old_str, new_str);
+        free(curr);
+        curr = temp;
     }
+    char* result = curr;
     return result;
 }
 
@@ -288,7 +291,7 @@ char* format(char* fmt, ...){
     return buf;
 }
 
-char* collapseWhitespace(char* str){
+char* collapse_whitespace(char* str){
     char* buf = malloc(strlen(str) + 1);
     char* out = buf;
     int inSpace = 0;

@@ -1,5 +1,5 @@
-#ifndef DS_TYPES_H
-#define DS_TYPES_H
+#ifndef BDS_TYPES_H
+#define BDS_TYPES_H
 
 // arrays
 typedef struct {
@@ -44,7 +44,7 @@ typedef struct set_entry {
 } set_entry_t;
 
 typedef struct {
-    set_entry** buckets;
+    struct set_entry** buckets;
     int size; 
     int capacity; 
 } set_t;
@@ -78,6 +78,6 @@ typedef struct {
     int* strides;
     int ndim;
     int size;
-} tensor_t
+} tensor_t;
 
 #endif

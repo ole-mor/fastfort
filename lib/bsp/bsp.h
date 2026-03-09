@@ -9,17 +9,17 @@
 char** split(char* str, char* delim);
 void   split_free(char** arr);
 char*  trim(char* str); 
-int    startsWith(char* str, char* prefix);
-int    endsWith(char* str, char* suffix);
+int    starts_with(char* str, char* prefix);
+int    ends_with(char* str, char* suffix);
 char*  join(char** arr, char* delim);
 find_result_t* find(char* str, char* pattern);
-find_result_t* findAll(char* str, char* pattern);
-void  freefindresult(find_result_t* result);
-char* toUpper(char* str);
-char* toLower(char* str);
+find_result_t* find_all(char* str, char* pattern);
+void  free_findresult(find_result_t* result);
+char* to_upper(char* str);
+char* to_lower(char* str);
 char* replace(char* str, char* old_str, char* new_str);
-char* replaceAll(char* str, char* old_str, char* new_str);
+char* replace_all(char* str, char* old_str, char* new_str);
 char* format(char* fmt, ...);
-char* collapseWhitespace(char* str);
+char* collapse_whitespace(char* str);
 
 #endif
