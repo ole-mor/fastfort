@@ -9,15 +9,9 @@ typedef struct {
     float m[2][2];
 } Matrix2x2;
 
-// Geometry
-float pytogorasL(float x, float y);
-float pytogorasH(float x, float y);
-
 // Algebra
-float* linear_equation(float a, float b);
-float complex* quadratic_equation(float a, float b, float c);
-float complex* cubic_equation(float a, float b, float c, float d);
-float complex* quartic_equation(float a, float b, float c, float d, float e);
+
+float complex* polynomial_equation(int degree, ...);
 float complex* exponential_equation(float base, float result);
 
 // Matrix

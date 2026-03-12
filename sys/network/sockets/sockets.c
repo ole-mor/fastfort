@@ -31,7 +31,7 @@ int receive_from(int file_descriptor, char *buffer, int buffer_size, struct sock
 }
 
 int create_tcp_socket(void) {
-    int file_descriptor = socket(AF_INET, SOCK_STREAM, 0);
+    int file_descriptor = socket(AF_INET, SOCK_STREAM, IPPROTO_UDP);
     if (file_descriptor == -1) { perror("socket error"); exit(1); }
     int opt = 1;
     setsockopt(file_descriptor, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
