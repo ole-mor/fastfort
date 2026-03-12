@@ -1,5 +1,5 @@
-#ifndef SOCKET_CONFIG_H
-#define SOCKET_CONFIG_H
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -11,6 +11,15 @@ typedef struct {
     int optname;
     int value;
 } socket_option;
+
+typedef struct {
+    struct sockaddr_in server_addr;
+    struct sockaddr_in client_addr;
+    uint16_t port;
+    uint8_t backlog;
+    uint8_t max_clients;
+    socket_option *profile;
+}
 
 /* ----- TCP Profiles ----- */
 
