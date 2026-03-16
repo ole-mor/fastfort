@@ -13,7 +13,7 @@ float pytogoras_h(float x, float y){
 }
 
 float triangle_area(float a, float b, float c_angle){
-    float A = (1/2)*(a*b*sin(c_angle));
+    return (1/2)*(a*b*sin(c_angle));
 }
 
 float triangle_area_s(float a, float b, float c){
