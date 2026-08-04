@@ -5,9 +5,8 @@
 #include <string.h>
 #include <math.h>
 #include <complex.h>
+#include <stdarg.h>
 #include "bmu.h"
-
-
 
 // Algebra
 float complex* polynomial_equation(int degree, ...) {
@@ -69,10 +68,6 @@ float complex* polynomial_equation(int degree, ...) {
         float b_cubic = b_norm_2p;
         float c_cubic = c_norm_pp;
         float d_cubic = d_norm_qq;
-        
-        float complex* cubic_helper = malloc(3 * sizeof(float complex));
-        va_list dummy;
-        va_start(dummy, degree);
         
         float disc_c = c_cubic * c_cubic - 4 * b_cubic * d_cubic;
         float complex sqrt_disc_c = csqrtf(disc_c + 0.0f * I);

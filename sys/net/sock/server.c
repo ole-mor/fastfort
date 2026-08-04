@@ -25,8 +25,6 @@ typedef struct {
 
 
 
-
-
 ////////// OLD ////////////
 
 void apply_socket_options(int sock, socket_option *opts){

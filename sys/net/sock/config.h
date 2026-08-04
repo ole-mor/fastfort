@@ -43,8 +43,6 @@ socket_option tcp_bulk_transfer[] = {
     {IPPROTO_TCP, TCP_NODELAY, 0},
     {SOL_SOCKET, SO_KEEPALIVE, 1},
     {IPPROTO_IP, IP_TOS, IPTOS_THROUGHPUT},
-    {0, 0, 0}
-};
 
 socket_option tcp_connection_heavy[] = {
     {SOL_SOCKET, SO_REUSEADDR, 1},
